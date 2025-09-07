@@ -13,13 +13,12 @@ export const App = () => {
   };
 
   const increase = () => {
-    setCount(count + 1);
-
-    if (count % 5 === 0) {
-      add100();
-    }
-
-    addOne();
+    setCount(() => {
+      addOne();
+      if (count % 5 === 0) {
+        add100();
+      }
+    });
   };
 
   return (
